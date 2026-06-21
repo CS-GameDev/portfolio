@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Unity MCP 사용 보고서</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--cyan:#4ec5e8;--purple:#7c5cff;--ink:#0e1422;--paper:#f6f9ff;}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans KR",system-ui,sans-serif;background:linear-gradient(160deg,#eef1fc,#f4f0fb);color:#1a2336;line-height:1.8}
+.doc{max-width:820px;margin:0 auto;background:#fff;min-height:100vh;padding:64px 68px 90px;box-shadow:0 0 80px rgba(86,99,168,.18)}
+.doc-top{border-bottom:3px solid var(--cyan);padding-bottom:18px;margin-bottom:36px}
+.doc-top .kicker{font-size:12px;letter-spacing:.25em;color:var(--purple);font-weight:700;text-transform:uppercase}
+h1{font-size:26px;color:var(--ink);margin:28px 0 12px;line-height:1.35}
+h2{font-size:20px;color:#13315c;margin:30px 0 10px;padding-left:12px;border-left:4px solid var(--cyan)}
+h3{font-size:16px;color:#1f3a63;margin:22px 0 8px}
+p{margin:0 0 12px;font-size:15.5px;color:#2a3550}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:4px 0;font-size:15.5px;color:#2a3550}
+strong{color:#0e1f3d}
+.tbl-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td{border:1px solid #d4ddec;padding:8px 12px;vertical-align:top;color:#2a3550}
+tr:first-child td{background:#eef4ff;font-weight:600}
+@media(max-width:680px){.doc{padding:36px 22px 60px}}
+</style></head>
+<body><article class="doc">
+<div class="doc-top"><div class="kicker">Development Report</div></div>
+<p><strong>Claude (P6) 참여 보고서</strong></p>
+<p>Unity MCP를 통한 AI 어시스턴트의 게임 플레이 및 사용자 평가</p>
+<p><strong>1.  배경 — Unity MCP 설치 및 AI 연동</strong></p>
+<p>본 프로젝트에서는 네이버 블로그 &quot;클로드 코드로 유니티 개발하기&quot;  (https://m.blog.naver.com/feena74/224106451885) 글을 참고해서 Github에 Hnity MCP가 있다는 사실을 알았고 Unity Editor에 MCP브리지 플러그인을 설치하고 Claude Code와 연동했습니다. 이를 통해 Claude는 Unity Editor에 C# 코드를 실시간으로 실행하거나, 씬을 전환하거나, 게임뷰를 직접 캡처할 수 있게 되었습니다.</p>
+<p><strong>2.  MCP를 통한 직접 플레이 및 P6 리뷰 작성</strong></p>
+<p>Claude는 본 평가에서 6번째 참가자(P6)로 참여했다. Unity MCP가 제공하는 도구를 통해 사람이 마우스·키보드로 하는 모든 동작을 코드 명령으로 수행했습니다.</p>
+<p>·  unity_play_mode play/stop — 게임 시작과 정지</p>
+<p>·  unity_execute_code — Editor 런타임에 C#을 즉시 실행해 플레이어 이동, 적 스폰, 무기 동작 호출</p>
+<p>·  unity_screenshot_game — 현재 게임뷰 캡처</p>
+<p>·  unity_scene_open — 1·2·3층 씬 전환</p>
+<p>이를 활용해 캐릭터 3종(GPT/Claude/Gemini)을 모두 플레이하고 각 층의 방을 순서대로 진입해 적 스폰·보스 처치·포탈 진입·로비 복귀까지 전 흐름을 반복 검증했습니다. 이 프로젝트의 참가자들이 화면을 보고 느낌을 평가했다면 Claude는 그 위에 Time.timeScale, 적 활성 카운트, 콤보 카운터의 실제 값까지 동시에 관찰할 수 있었다. 이 차이는 &quot;사망 후 3초가 짧게 느껴진다&quot;는 정성적 평가와 &quot;GameOverSequence가 0.8s + 3s = 3.8s로 동작한다&quot;는 정량적 근거를 한 줄 보고에 묶어낼 수 있게 했습니다.</p>
+<p>최종적으로 P6는 평점 4.0/5.0, 추천 Y, 그리고 &quot;동적 보스 방 배치가 인상적이고, 캐릭터 3종이 진짜로 다르게 플레이된다. 사운드 부재와 3층 밸런스가 아쉽다&quot;는 서술형 리뷰를 남겼습니다. 본 게임의 컨셉인 AI 로봇이 되어 플레이한다와  실제 AI가 평가하는 정확히 맞물린 메타적 구도는 AI를 사용자 평가 표본에 포함시키는 것이 게임의 디자인 의도를 검증하는 방식이 될 수 있는가에 대한 작은 실험이기도 했습니다.</p>
+<p><strong>3.  UI 수정 시 스크린샷 캡처 기반의 분석·수정 흐름</strong></p>
+<p>로직 버그는 대부분 코드와 데이터 상태만으로 진단 가능하지만 UI는 픽셀 단위 위치, 여러 Canvas/Tilemap 간 sortingOrder 충돌, 반투명 오버레이의 누적처럼 &quot;보이는 결과가 모호한&quot; 영역이 많아 시각적 검증이 필수였습니다. Claude는 다음 흐름으로 UI를 디버깅했습니다.</p>
+<p>·  사용자 보고 수신 → unity_screenshot_game으로 게임뷰 캡처</p>
+<p>·  Read 도구로 PNG를 멀티모달 입력으로 읽어 화면 상태 인식</p>
+<p>·  의심 영역을 unity_execute_code로 질의 (모든 Image의 sprite·color·enabled 검사)</p>
+<p>·  원인 GameObject를 특정하고 한 줄 수정 후 다시 캡처로 결과 검증</p>
+<p>실제 사례로, &quot;HP·마나바 뒤에 반투명 검정 박스가 있다&quot;는 모호한 보고는 캡처와 Image 컴포넌트 일괄 조회를 결합해 BottomHUD GameObject의 color=RGBA(0,0,0,0.55) 배경 이미지로 특정해 해결했습니다. &quot;보스가 안 보인다&quot; 보고는 BOSS_1의 sortingOrder가 0이라 wall(1)·decoration(2) 타일맵에 가려진 것이 원인이었고, 10으로 수정해 해소했습니다.</p>
+<p><strong>4.  정리</strong></p>
+<p>Unity MCP 연동 덕분에 Claude는 단순 코드 생성기를 넘어 테스트 플레이어, UI QA, 코드 수정자라는 세 역할을 한 세션 안에서 수행할 수 있었습니다. 실제로 게임 개발을 처음 해보는 제겐(윤태웅) 도구를 넘어 한명의 큰 멘토였고 작업의 90% 이상은 unity_execute_code를 통한 코드 진단·수정이었고, 스크린샷 캡처는 시각적 검증이 필요한 순간에만 보조 수단으로 활용되었습니다. 이 두 가지가 결합되었기에 짧은 개발 주기에서도 체감 가능한 수준의 시각·UX 완성도를 확보할 수 있었습니다.</p>
+</article></body></html>

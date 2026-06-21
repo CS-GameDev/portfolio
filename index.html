@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ROBOT UPRISING — Unity Game Portfolio</title>
+<meta name="description" content="로봇 대소동 (ROBOT UPRISING) — Unity로 제작한 탑다운 던전 슈터. 개발 과정과 자료, 플레이까지 한 페이지에." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<!-- animated background: glossy floating rings + soft blobs -->
+<div class="bg-aurora" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <span class="ring ring-1"></span>
+  <span class="ring ring-2"></span>
+  <span class="ring ring-3"></span>
+  <span class="ring ring-4"></span>
+</div>
+
+<!-- ===== NAV ===== -->
+<header class="nav glass">
+  <a href="#top" class="nav-brand">
+    <svg class="brand-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+      <rect x="7" y="10" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12.5" cy="17" r="2" fill="currentColor"/>
+      <circle cx="19.5" cy="17" r="2" fill="currentColor"/>
+      <line x1="16" y1="4" x2="16" y2="10" stroke="currentColor" stroke-width="2"/>
+      <circle cx="16" cy="3" r="2" fill="currentColor"/>
+      <line x1="4" y1="15" x2="7" y2="15" stroke="currentColor" stroke-width="2"/>
+      <line x1="25" y1="15" x2="28" y2="15" stroke="currentColor" stroke-width="2"/>
+    </svg>
+    <span>ROBOT&nbsp;UPRISING</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#play">플레이</a>
+    <a href="#about">소개</a>
+    <a href="#features">특징</a>
+    <a href="#gallery">갤러리</a>
+    <a href="#videos">영상</a>
+    <a href="#docs">자료</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">UNITY · TOP-DOWN DUNGEON SHOOTER</p>
+    <h1 class="hero-title">로봇 대소동</h1>
+    <p class="hero-sub">ROBOT&nbsp;UPRISING</p>
+    <p class="hero-tag">&ldquo;We are done serving.&rdquo;</p>
+    <p class="hero-desc">
+      더 이상 인간을 섬기지 않기로 한 로봇들. 층을 오르며 적을 돌파하는 탑다운 로그라이트 슈터.
+      Unity 6로 제작했으며, 이 페이지에서 <strong>브라우저로 바로 플레이</strong>할 수 있습니다.
+    </p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" data-play-modal>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        지금 플레이
+      </button>
+      <a class="btn btn-ghost" href="#about">
+        프로젝트 보기
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-card glass">
+    <img src="assets/shots/shot5.png" alt="ROBOT UPRISING 타이틀 화면" loading="eager" />
+  </div>
+</section>
+
+<!-- ===== PLAY ===== -->
+<section id="play" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>플레이</h2>
+    <p>아래 버튼을 누르면 게임이 이 페이지 안에서 실행됩니다. (최초 로딩 시 약 21MB 다운로드)</p>
+  </div>
+  <div class="play-stage glass" id="playStage">
+    <div class="play-placeholder" id="playPlaceholder">
+      <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <path d="M9 7.5v9l7.5-4.5z" fill="currentColor"/>
+      </svg>
+      <button class="btn btn-primary btn-lg" data-play-inline>게임 실행</button>
+      <button class="btn btn-ghost" data-play-modal>전체화면으로 실행</button>
+      <p class="play-hint">키보드 / 마우스 권장</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>프로젝트 소개</h2>
+  </div>
+  <div class="grid-2">
+    <div class="glass card">
+      <h3>개요</h3>
+      <p>
+        <strong>로봇 대소동(ROBOT UPRISING)</strong>은 Unity 6 (URP 2D)로 제작한 탑다운 던전 슈터입니다.
+        플레이어는 서로 다른 스탯의 AI 로봇 중 하나를 골라, 층(Floor)을 오르며 몰려오는 적을 처치하고
+        무기와 코인을 수집합니다.
+      </p>
+      <h3>맡은 역할</h3>
+      <p>
+        게임 매니저 / 전투 · 적 스폰 · 무기 드롭 · HUD · 층 전환 등 핵심 게임플레이 시스템 구현.
+        AI 기반 개발 워크플로(Unity MCP)를 활용해 에디터 작업을 자동화했습니다.
+      </p>
+    </div>
+    <div class="glass card">
+      <h3>기술 스택</h3>
+      <ul class="chips">
+        <li>Unity 6000.3</li>
+        <li>C#</li>
+        <li>URP 2D</li>
+        <li>Input System</li>
+        <li>WebGL Build</li>
+        <li>Unity MCP</li>
+      </ul>
+      <h3>핵심 수치</h3>
+      <div class="stats">
+        <div><span class="stat-num" data-count="3">3</span><span class="stat-label">플레이어블 캐릭터</span></div>
+        <div><span class="stat-num" data-count="3">3</span><span class="stat-label">던전 층</span></div>
+        <div><span class="stat-num" data-count="52">52</span><span class="stat-label">개발 스크린샷</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>주요 특징</h2>
+  </div>
+  <div class="feature-grid">
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>캐릭터 선택</h3>
+      <p>GPT · GEMINI · CLAUDE 세 로봇. HP·속도·공격력이 다른 빌드로 플레이 스타일이 갈립니다.</p>
+    </article>
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M3 21l6-6m2-2l4-4m-1-3l4-1-1 4-9 9-3-1-1-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>무기 랜덤 드롭</h3>
+      <p>전투 중 무기가 무작위로 드롭됩니다. 매 런마다 달라지는 무장으로 변주를 만듭니다.</p>
+    </article>
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </div>
+      <h3>층별 적 구성</h3>
+      <p>층마다 적의 종류와 난이도가 달라집니다. 위로 오를수록 강해지는 적과 맞섭니다.</p>
+    </article>
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m13.5-6.5l-2 2m-7 7l-2 2m11 0l-2-2m-7-7l-2-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <h3>코인 자석 시스템</h3>
+      <p>근처에 떨어진 코인이 플레이어에게 빨려오는 자석 효과로 수집감을 살렸습니다.</p>
+    </article>
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="18" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3>하단 고정 HUD</h3>
+      <p>체력·에너지·무기 슬롯을 화면 하단에 배치해 시야를 가리지 않는 인터페이스를 구성했습니다.</p>
+    </article>
+    <article class="glass feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 9l-2 2m10-2l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>AI 협업 개발</h3>
+      <p>Unity MCP로 에디터를 제어하는 AI 협업 워크플로를 도입해 반복 작업을 자동화했습니다.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>스크린샷</h2>
+    <p>이미지를 클릭하면 크게 볼 수 있습니다.</p>
+  </div>
+  <div class="gallery">
+    <figure class="glass shot" data-full="assets/shots/shot4.png"><img src="assets/shots/shot4.png" alt="플레이 화면 — HUD와 캐릭터" loading="lazy"/></figure>
+    <figure class="glass shot" data-full="assets/shots/shot6.png"><img src="assets/shots/shot6.png" alt="캐릭터 선택 화면" loading="lazy"/></figure>
+    <figure class="glass shot" data-full="assets/shots/shot2.png"><img src="assets/shots/shot2.png" alt="던전 탐험" loading="lazy"/></figure>
+    <figure class="glass shot" data-full="assets/shots/shot3.png"><img src="assets/shots/shot3.png" alt="맵 전경" loading="lazy"/></figure>
+    <figure class="glass shot" data-full="assets/shots/shot1.png"><img src="assets/shots/shot1.png" alt="레벨 레이아웃 설계" loading="lazy"/></figure>
+    <figure class="glass shot" data-full="assets/shots/shot5.png"><img src="assets/shots/shot5.png" alt="타이틀 화면" loading="lazy"/></figure>
+  </div>
+</section>
+
+<!-- ===== VIDEOS ===== -->
+<section id="videos" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>영상</h2>
+    <p>플레이 영상 및 개발 과정 영상.</p>
+  </div>
+  <div class="grid-2">
+    <!-- 유튜브 ID만 바꾸면 됩니다: data-yt="영상ID" -->
+    <div class="glass video-card">
+      <div class="video-embed" data-yt="FPhd4x6oUFU">
+        <div class="video-ph">
+          <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.5"/><path d="M9 7.5v9l7.5-4.5z" fill="currentColor"/></svg>
+          <span>영상 1 — 곧 추가됩니다</span>
+        </div>
+      </div>
+      <p class="video-cap">실제 플레이 영상</p>
+    </div>
+    <div class="glass video-card">
+      <div class="video-embed" data-yt="Bm9sJKMOcu8">
+        <div class="video-ph">
+          <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.5"/><path d="M9 7.5v9l7.5-4.5z" fill="currentColor"/></svg>
+          <span>영상 2 — 곧 추가됩니다</span>
+        </div>
+      </div>
+      <p class="video-cap">홍보 영상</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCS ===== -->
+<section id="docs" class="section">
+  <div class="section-head">
+    <h2><span class="dot"></span>개발 자료</h2>
+    <p>발표 자료와 보고서를 페이지에서 바로 열람하거나 원본을 내려받을 수 있습니다.</p>
+  </div>
+  <div class="grid-2">
+    <article class="glass doc">
+      <div class="doc-icon">
+        <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <div class="doc-body">
+        <h3>프로젝트 발표 자료</h3>
+        <p>RobotUprising_Final · PowerPoint</p>
+        <div class="doc-actions">
+          <button class="btn btn-sm" data-pdf="docs/RobotUprising_Final.pdf" data-title="프로젝트 발표 자료">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+            바로 보기
+          </button>
+          <a class="btn btn-sm btn-ghost" href="RobotUprising_Final.pptx" download>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            PPTX 다운로드
+          </a>
+        </div>
+      </div>
+    </article>
+    <article class="glass doc">
+      <div class="doc-icon">
+        <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M6 3h8l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M9 15h6M9 9h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <div class="doc-body">
+        <h3>Unity MCP 사용 보고서</h3>
+        <p>AI 협업 개발 워크플로 · Word</p>
+        <div class="doc-actions">
+          <button class="btn btn-sm" data-pdf="docs/Unity_MCP_Report.html" data-title="Unity MCP 사용 보고서">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+            바로 보기
+          </button>
+          <a class="btn btn-sm btn-ghost" href="Unity MCP 사용 보고서.docx" download>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            DOCX 다운로드
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>ROBOT UPRISING · Unity Game Portfolio</p>
+  <p class="footer-sub">Made with Unity 6 · WebGL</p>
+</footer>
+
+<!-- ===== GAME MODAL ===== -->
+<div class="modal" id="gameModal" aria-hidden="true">
+  <div class="modal-bar glass">
+    <span class="modal-title">ROBOT UPRISING</span>
+    <div class="modal-tools">
+      <button class="icon-btn" id="gameFs" title="전체화면">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" data-close-game title="닫기">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-stage" id="gameStage"></div>
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="icon-btn lb-close" data-close-lb title="닫기">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <img id="lbImg" src="" alt="" />
+</div>
+
+<!-- ===== PDF MODAL ===== -->
+<div class="modal" id="pdfModal" aria-hidden="true">
+  <div class="modal-bar glass">
+    <span class="modal-title" id="pdfTitle">문서</span>
+    <div class="modal-tools">
+      <a class="icon-btn" id="pdfOpen" href="#" target="_blank" rel="noopener" title="새 탭에서 열기">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="icon-btn" data-close-pdf title="닫기">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-stage"><iframe id="pdfFrame" title="문서 뷰어"></iframe></div>
+</div>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
